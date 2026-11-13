@@ -999,6 +999,9 @@ function fromGeminiThought(part: {
   };
 }
 
+/**
+ * Resolves a local JSON Pointer `$ref` (e.g., `#/$defs/Node`) against the root schema.
+ */
 function resolveSchemaRef(
   ref: string,
   rootSchema?: Record<string, any> | null

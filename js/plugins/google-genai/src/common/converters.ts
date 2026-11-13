@@ -52,6 +52,9 @@ export function toGeminiTool(tool: ToolDefinition): FunctionDeclaration {
   return declaration;
 }
 
+/**
+ * Resolves a local JSON Pointer `$ref` (e.g., `#/$defs/Node`) against the root schema.
+ */
 function resolveSchemaRef(
   ref: string,
   rootSchema?: ToolDefinition['inputSchema']
