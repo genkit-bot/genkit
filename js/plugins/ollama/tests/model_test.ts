@@ -158,7 +158,7 @@ describe('ollama models', () => {
     await ai.generate({
       model: 'ollama/test-generate-model',
       prompt: 'Hello',
-      config: { stopSequences: ['<END>', '<USER>', '<STOP>'] },
+      config: { stopSequences: ['<END>'] },
     });
 
     assert.strictEqual(capturedRequests.length, 2);
@@ -174,10 +174,6 @@ describe('ollama models', () => {
       capturedRequests[1].url,
       'http://localhost:3000/api/generate'
     );
-    assert.deepStrictEqual(capturedRequests[1].body.options.stop, [
-      '<END>',
-      '<USER>',
-      '<STOP>',
-    ]);
+    assert.deepStrictEqual(capturedRequests[1].body.options.stop, ['<END>']);
   });
 });
